@@ -1,0 +1,13 @@
+{ "members": [
+    {"id":"123", "cin": "11127749" , "name" :"fatma", "createdDate":"", "cv"  :"", "type" :"STUDENT"  },
+    {"id":"1234", "cin": "11127748" , "name" :"emna", "createdDate":"", "cv"  :"", "type" :"STUDENT"  },
+    {"id":"12345", "cin": "11127747" , "name" :"khadija", "createdDate":"", "cv"  :"", "type" :"STUDENT"  }
+] , 
+"articles":[
+    {"id":"123", "type": "article1","title": "it" , "lien" :"fatma", "Date":"", "SourcePdf"  :"", "auteur" :""},
+    {"id":"1234", "type": "article2","title": "itinfra" , "lien" :"fatma", "Date":"", "SourcePdf"  :"", "auteur" :""},
+    {"id":"12345", "type": "article3","title": "itdev" , "lien" :"fatma", "Date":"", "SourcePdf"  :"", "auteur" :""}
+
+]
+
+}
