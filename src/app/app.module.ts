@@ -26,6 +26,7 @@ import { ToolsComponent } from './tools/tools.component';
 import { EventsComponent } from './events/events.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ArticleFormDialogComponent } from './article-form-dialog/article-form-dialog.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     LayoutComponent,
     ArticlesComponent,
     ToolsComponent,
-    EventsComponent
+    EventsComponent,
+    ArticleFormDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { ArticleFormDialogComponent } from './../article-form-dialog/article-form-dialog.component';
 import { Router } from '@angular/router';
 import { Article } from './../../models/Article';
 import { ArticleService } from './../../services/article.service';
@@ -5,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-articles',
@@ -33,9 +33,15 @@ export class ArticlesComponent implements OnInit {
    
     fetchData() : void
   {
-    // this.articleService.getAllArticles().then((tableau: any)=>{this.dataSourcearticle.data=tableau;})
+    this.articleService.getAllArticles().then((tableau: any)=>{this.dataSourcearticle.data=tableau;})
   } 
+  ONEdit(id : string) : void {
 
+    const dialogRef = this.dialog.open(ArticleFormDialogComponent,{});
+    // nestana fel after closed 
+    //   dialogRef.afterClosed().subscribe(resultat=>{if (resultat) {this.articleService.saveArticle(objectToSubmit).then(()=>{this.router.navigate(['./articles'])}) ;}}) ;
+    
+  }
 
 
 }

@@ -35,7 +35,7 @@ export class MemberService {
   }
   deleteMemberById(id : string) : Promise<void>
   {
-    this.httpClient.delete<void>('adresseapi').toPromise();
+    //this.httpClient.delete<void>('adresseapi').toPromise();
     //forcage de type (toPromise) || void == type de retour 
      this.tab = [...this.tab.filter(item=> item.id!== id)] ;
     
