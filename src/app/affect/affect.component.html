@@ -1,0 +1,10 @@
+<mat-form-field appearance="fill">
+    <mat-label>Select an option</mat-label>
+    <!-- ta9ra mel html tsoki fel ts o terja3 t affichci fel html -->
+    <mat-select [(value)]="selected">
+      <mat-option *ngFor= "let element of tab " value="{{element.name}}">{{element.name}}</mat-option>
+    
+    </mat-select>
+  </mat-form-field>
+  <button (click)="affect(selected)">OK</button>
+  <p>You selected: {{selected}}</p>

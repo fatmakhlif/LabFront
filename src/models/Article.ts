@@ -1,6 +1,6 @@
 import { Member } from './Member';
 export interface Article{
-    id:String, 
+    id:string, 
     type: String ,
     title :String, 
     Date:String,

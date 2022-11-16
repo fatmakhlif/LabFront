@@ -1,4 +1,5 @@
-import {  MatDialogModule } from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+import {   MatDialogModule } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -21,12 +22,21 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 import { ArticlesComponent } from './articles/articles.component';
 import { ToolsComponent } from './tools/tools.component';
 import { EventsComponent } from './events/events.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ArticleFormDialogComponent } from './article-form-dialog/article-form-dialog.component';
+import { AffectComponent } from './affect/affect.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FirebaseModule } from './Firebase.module';
+import { HeaderComponent } from './header/header.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -39,7 +49,13 @@ import { ArticleFormDialogComponent } from './article-form-dialog/article-form-d
     ArticlesComponent,
     ToolsComponent,
     EventsComponent,
-    ArticleFormDialogComponent
+    ArticleFormDialogComponent,
+    AffectComponent,
+    LoginComponent,
+    HeaderComponent,
+    SidenavComponent,
+    DashboardComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -62,6 +78,13 @@ import { ArticleFormDialogComponent } from './article-form-dialog/article-form-d
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
+    MatOptionModule,
+    MatSelectModule,
+    NgbModule,
+    FirebaseModule,
+      
+
+    
     
   
     

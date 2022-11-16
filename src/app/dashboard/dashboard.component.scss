@@ -1,7 +1,4 @@
-table {
-    width: 100%;
-  }
-  .page {
+.page {
     color: white;
     padding: 0 1rem;
     background: #f1f5f9;
@@ -17,7 +14,7 @@ table {
       margin-top: -2rem;
       background: white;
       color: black;
-      //font-size: 2rem;
+      font-size: 2rem;
       &-data {
         top: 50%;
         left: 50%;

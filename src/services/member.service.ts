@@ -47,7 +47,7 @@ export class MemberService {
     //this.httpClient.get<Member[]>('link').toPromise();
     return new Promise (resolve => resolve (this.tab))
   }
-
+ 
 
   
 
