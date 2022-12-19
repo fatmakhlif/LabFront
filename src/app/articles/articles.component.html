@@ -1,5 +1,8 @@
 
-
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Dashboard</div>
+  <div class="page__content shadow p-3 position-relative">
+   
 
 <div fxLayout="row" fxLayoutAlign="end center"  >
   <button (click)="open(mymodal)" mat-button color="primary" > <mat-icon>add </mat-icon> Create New  </button>
@@ -9,7 +12,7 @@
 
   <div class="row">
     <div class="col-lg-3 col-md-4 col-6 my-2" *ngFor="let element of dataSourcearticle">
-        <mat-card class="example-card" style="margin: 5%;">
+        <mat-card class="example-card" style="margin: 0.2em;">
             <mat-card-content>
                 <div><b>Auteur : </b>{{element.auteur}}</div>
                 <br>
@@ -29,8 +32,8 @@
             <mat-card-actions col-6>
                 <div class="d-flex justify-content-center ">
                     <div>
-                        <button class="btn btn-sm btn-block btn-primary margin-x-6 " (click)="openformtoedit(editmodal, element.id)">edit</button>
-                        <button class="btn btn-sm btn-block btn-danger margin-x-6 " type="submit"
+                        <button class="btn btn-sm btn-block  margin-x-6 fatma " (click)="openformtoedit(editmodal, element.id)">edit</button>
+                        <button class="btn btn-sm btn-block  margin-x-6 lassad " type="submit"
                             (click)="ONDelete(element.id)">delete</button>
                     </div>
 
@@ -42,6 +45,9 @@
 
 
 </div>
+</div>
+</div>
+
 
 <ng-template #mymodal let-modal>
   <div class="modal-header text-center">
