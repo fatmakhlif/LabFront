@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FirstAppAngular';
-  sideBarOpen = true;
+  sideBarOpen = false;
 
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;

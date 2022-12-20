@@ -16,18 +16,18 @@
 
 <div class="content" >
  
-
+  
   <div class="table-responsive-sm mb-0" id="div">
       <table class="table table-striped" >
           <thead>
-              <tr >
+              <tr style=" color: #94a3b8 ;" >
                 
-                  <th scope="col" class="h2">ID</th>
-                  <th scope="col" class="h2">CIN</th>
-                  <th scope="col" class=" h2" >NAME</th>                     
-                  <th scope="col" class="th-lg h2" style="text-align:right">CV</th>
-                  <th scope="col" class="th-lg h2" style="text-align:right">TYPE</th>
-                  <th scope="col" class="th-lg h2" style="text-align:right">Created Date</th>         
+                  <th scope="col" class="h4">ID</th>
+                  <th scope="col" class="h4">CIN</th>
+                  <th scope="col" class=" h4" >NAME</th>                     
+                  <th scope="col" class="th-lg h4" style="text-align:right ">CV</th>
+                  <th scope="col" class="th-lg h4" style="text-align:right">TYPE</th>
+                  <th scope="col" class="th-lg h4" style="text-align:right">Created Date</th>         
                 
 
 
@@ -40,7 +40,7 @@
                   <th>{{ element.cin }}</th>
                   <th>{{ element.name }}</th>
                   <th class="th-xs ml-0" style="text-align:right;" > {{ element.name }}</th>
-                  <th class ="th-lg"style="text-align:right; font-weight: normal;" > {{ element.cv }}</th>
+                  <th class ="th-lg"style="text-align:right; font-weight: normal;o" > {{ element.cv }}</th>
                   <th style="text-align:right;">{{ element.type }}</th>
                   <th style="text-align:right;font-weight: normal;">{{element.createdDate}}</th>
                   
@@ -120,7 +120,7 @@
     </form>
   </div>
   <div class="modal-footer justify-content-center">
-    <button class="btn  btn-outline-success btn-lg" (click)="ONSUB()  ;  modal.close('Save click')">Validate</button>
+    <button style="color: #818cf8;" class="btn  btn-outline btn-lg" (click)="ONSUB()  ;  modal.close('Save click')">Validate</button>
   </div>
 </ng-template>
 
