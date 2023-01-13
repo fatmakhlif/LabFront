@@ -4,6 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+
+
+
 @Component({
   selector: 'app-member-form',
   templateUrl: './member-form.component.html',
@@ -15,7 +19,7 @@ export class MemberFormComponent implements OnInit {
   itemGlobal : any ;
  
 //injecter le service ds le constructure du component
-  constructor(private MemberService : MemberService , private router :Router  , private ActivatedRouter : ActivatedRoute ) { }
+  constructor(private MemberService : MemberService , private router :Router  ,private ActivatedRouter : ActivatedRoute ) { }
 
   ngOnInit(): void {
     //recuperer l element a partir du url 
@@ -38,25 +42,31 @@ export class MemberFormComponent implements OnInit {
   initForm():void {
     this.form =  new FormGroup ({
       cin : new FormControl (null , [Validators.required]),
-      name : new FormControl (null , [Validators.required]),
+      nom : new FormControl (null , [Validators.required]),
+      prenom : new FormControl (null , [Validators.required]),
+
       cv : new FormControl (null , [Validators.required]),
-      type : new FormControl (null , [Validators.required]),
+      email : new FormControl (null , [Validators.required]),
 
 
     })
 
   }
+ 
   initForm1(item : Member):void {
     this.form =  new FormGroup ({
       cin : new FormControl (item.cin),
-      name : new FormControl (item.name),
+      nom : new FormControl (item.nom),
+      prenom : new FormControl (item.prenom),
+
       cv : new FormControl (item.cv),
-      type : new FormControl (item.type),
+      email : new FormControl (item.email),
 
 
     })
 
   }
+  
   ONSUB():void {
 
    const objectToSubmit = {...this.itemGlobal ,...this.form.value} 

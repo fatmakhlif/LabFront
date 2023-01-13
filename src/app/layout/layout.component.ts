@@ -15,7 +15,7 @@ export class LayoutComponent implements OnInit {
   }
   logout():void{
 
-    this.authService.doLogout().finally(()=>{this.router.navigate(['/login'])})
+    //this.authService.doLogout().finally(()=>{this.router.navigate(['/login'])})
   }
 
 }

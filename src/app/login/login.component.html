@@ -1,8 +1,60 @@
-<mat-card>
-  <mat-card-title>Laboratoire</mat-card-title>
-  <mat-card-subtitle>Login</mat-card-subtitle>
-  <mat-card-actions>
-    <button mat-button (click) ="GOOGLE()">Login</button>
+<!-- <div class="container mt-3" *ngIf="userFormGroup">
+  <div class="card col-md-6 offset-md-3">
+    <div class="card-header text-center"><h3>Authentication</h3></div>
+    <div class="card-body">
+      <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
+        <div class="mb-3">
+          <label class="form-label">Username:</label>
+          <input type="text" formControlName="username" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password:</label>
+          <input type="password" formControlName="password" class="form-control">
+        </div>
+        <div class="d-grid">
+          <button class="btn btn-info">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+ </div> -->
+ <section class="vh-100" >
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://img.freepik.com/vecteurs-libre/illustration-concept-chercheurs_114360-8124.jpg?w=996&t=st=1672483117~exp=1672483717~hmac=769fe640ac6c328209ca5d2dab90746fbf83c752294443bac4fb8aebac5d4c2f"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 ">
+        <form [formGroup]="userFormGroup" (ngSubmit)="handleLogin()">
+         
 
-  </mat-card-actions>
-</mat-card>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Username</label>
+            <input type="text" formControlName="username" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter a username" />
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label class="form-label" for="form3Example4">Password</label>
+            <input type="password" formControlName="password" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter password" />
+          </div>
+
+         
+
+          <div class="text-center text-lg-start mt-4 pt-2 " style="margin-left :30%" >
+            <button  class="btn  btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;background-color: #1e293b; color :#FFF">Login</button>
+          
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+ 
+</section>

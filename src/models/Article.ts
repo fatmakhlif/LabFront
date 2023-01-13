@@ -1,11 +1,11 @@
 import { Member } from './Member';
-export interface Article{
+export interface Publication{
     id:string, 
     type: String ,
     title :String, 
-    Date:String,
+    date:String,
     lien :String,
     auteur :any ,
-    SourcePdf : String ,
+    sourcePdf : String ,
     
 }

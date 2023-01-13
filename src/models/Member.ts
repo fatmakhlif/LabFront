@@ -1,8 +1,10 @@
 export interface Member{
-    id:String, 
+    id:string, 
     cin: String ,
-    name :String, 
-    createdDate:String,
+    nom :String, 
+    prenom :String, 
+
+    date:String,
     cv  :String,
-    type :String ,
+    email :String ,
 }

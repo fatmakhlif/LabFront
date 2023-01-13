@@ -1,7 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ArticleFormDialogComponent } from './../article-form-dialog/article-form-dialog.component';
 import { Router } from '@angular/router';
-import { Article } from './../../models/Article';
+import { Publication } from './../../models/Article';
 import { ArticleService } from './../../services/article.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog  } from '@angular/material/dialog';
@@ -18,7 +18,7 @@ import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 })
 export class ArticlesComponent implements OnInit {
 
-  dataSourcearticle:Article[] ;
+  dataSourcearticle:Publication[] ;
   closeResult: string="";
   content: any ;
   form : any ;
@@ -30,18 +30,26 @@ export class ArticlesComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.fetchData();
 
     this.form = new FormGroup({
       'id': new FormControl(null, Validators.required),
       'title': new FormControl(null, Validators.required),
       'type': new FormControl(null, Validators.required),
       'lien': new FormControl(null, Validators.required),
-      'SourcePdf': new FormControl(null, Validators.required),
+      'sourcePdf': new FormControl(null, Validators.required),
       'auteur': new FormControl(null, Validators.required),
-      'Date': new FormControl(null, Validators.required),
+      'date': new FormControl(null, Validators.required),
 
      
     });
+    
+  }
+  title = 'FirstAppAngular';
+  sideBarOpen = false;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
   }
   ONDelete(id : string) : void {
 
@@ -57,23 +65,23 @@ export class ArticlesComponent implements OnInit {
     this.articleService.getAllArticles().then((tableau: any)=>{this.dataSourcearticle=tableau;})
   } 
   resetFormValues(){
-  this.form.get('id').setValue(null);
+  //this.form.get('id').setValue(null);
   this.form.get('title').setValue(null);
   this.form.get('type').setValue(null);
   this.form.get('auteur').setValue(null);
-  this.form.get('SourcePdf').setValue(null);
+  this.form.get('sourcePdf').setValue(null);
   this.form.get('lien').setValue(null);
-  this.form.get('Date').setValue(null);
+  this.form.get('date').setValue(null);
 
   }
-  modifyFormValues(item : Article){
-    this.form.get('id').setValue(item.id);
+  modifyFormValues(item : Publication){
+   // this.form.get('id').setValue(item.id);
   this.form.get('title').setValue(item.title);
   this.form.get('type').setValue(item.type);
   this.form.get('auteur').setValue(item.auteur);
-  this.form.get('SourcePdf').setValue(item.SourcePdf);
+  this.form.get('sourcePdf').setValue(item.sourcePdf);
   this.form.get('lien').setValue(item.lien);
-  this.form.get('Date').setValue(item.Date);
+  this.form.get('date').setValue(item.date);
 
   }
   open(content : any) {

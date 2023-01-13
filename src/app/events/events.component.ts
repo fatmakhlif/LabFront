@@ -11,5 +11,11 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  title = 'FirstAppAngular';
+  sideBarOpen = false;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
 }

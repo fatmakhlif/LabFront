@@ -19,6 +19,7 @@ export class MembersComponent implements OnInit {
   dataSource:Member[] ;
   closeResult: string="";
   form : any ;
+  form2 : any ;
   itemGlobal : any ;
   
 
@@ -30,18 +31,39 @@ export class MembersComponent implements OnInit {
     
 
   ngOnInit(): void {
+    this.fetchData();
 
     this.form = new FormGroup({
       'id': new FormControl(null, Validators.required),
       'cv': new FormControl(null, Validators.required),
       'cin': new FormControl(null, Validators.required),
-      'name': new FormControl(null, Validators.required),
-      'type': new FormControl(null, Validators.required),
-      'createdDate': new FormControl(null, Validators.required),
+      'nom': new FormControl(null, Validators.required),
+      'prenom': new FormControl(null, Validators.required),
+
+      'email': new FormControl(null, Validators.required),
+      'date': new FormControl(null, Validators.required),
+      
+     
+    });
+    this.form2 = new FormGroup({
+      'id': new FormControl(null, Validators.required),
+      'cv': new FormControl(null, Validators.required),
+      'cin': new FormControl(null, Validators.required),
+      'nom': new FormControl(null, Validators.required),
+      'prenom': new FormControl(null, Validators.required),
+
+      'email': new FormControl(null, Validators.required),
+      'date': new FormControl(null, Validators.required),
       
      
     });
 
+  }
+  title = 'FirstAppAngular';
+  sideBarOpen = false;
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
   }
    //dataSource : Member [] =  this.memberService.tab ;
   fetchData() : void
@@ -66,18 +88,22 @@ export class MembersComponent implements OnInit {
       //   this.dataSource.filter = filterValue.trim().toLowerCase();
       // }
       resetFormValues(){
-       this.form.get('cin').setValue(null);
-       this.form.get('type').setValue(null);
-       this.form.get('cv').setValue(null);
-       this.form.get('name').setValue(null);
+       this.form2.get('cin').setValue(null);
+       this.form2.get('email').setValue(null);
+       this.form2.get('cv').setValue(null);
+       this.form2.get('nom').setValue(null);
+       this.form2.get('prenom').setValue(null);
+       
       
      
        }
        modifyFormValues(item : Member){
-         this.form.get('cin').setValue(item.cin);
-       this.form.get('cv').setValue(item.cv);
-       this.form.get('type').setValue(item.type);
-       this.form.get('name').setValue(item.name);
+         this.form2.get('cin').setValue(item.cin);
+       this.form2.get('cv').setValue(item.cv);
+       this.form2.get('email').setValue(item.email);
+       this.form2.get('nom').setValue(item.nom);
+       this.form2.get('prenom').setValue(item.prenom);
+
       
      
        }
@@ -93,6 +119,7 @@ export class MembersComponent implements OnInit {
       openformtoedit(content : any , id : string) {
         this.memberService.getMemberByid(id).then((item)=>{this.modifyFormValues(item);
           this.itemGlobal=item ;
+          console.log(item);
         })
          this.modalService.open(content, { size: 'lg', ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
            this.closeResult = `Closed with: ${result}`;
@@ -120,8 +147,9 @@ export class MembersComponent implements OnInit {
     }
     ONEDIT(): void {
     
-      const objectToSubmit = {...this.itemGlobal ,...this.form.value} 
-        this.memberService.saveMember(objectToSubmit).then(()=>{this.fetchData() ;}) ;
+         console.log(this.form2.value);
+        //this.memberService.saveMember(objectToSubmit).then(()=>{this.fetchData() ;}) ;
+        this.memberService.EditMember(2 ,this.form2.value).then(()=>{this.fetchData() ;}) ;
     
     }
      

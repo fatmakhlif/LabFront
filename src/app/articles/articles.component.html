@@ -1,4 +1,10 @@
-
+<mat-drawer-container>
+  <mat-drawer mode="over" [opened]="sideBarOpen">
+    <!-- <mat-drawer mode="side" opened="true"> -->
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
 <div class="container-fluid page">
   <div class="d-flex page__box p-3 mt-2">Articles</div>
   <div class="page__content shadow p-3 position-relative">
@@ -20,9 +26,9 @@
                 <br>
                 <div> <b>Type : </b>{{element.type}}</div>
                 <br>
-                <div><b>Date : </b>{{ element.Date  }}</div>
+                <div><b>Date : </b>{{ element.date  }}</div>
                 <br>
-                <div><b> SourcePdf : </b>{{element.SourcePdf}}</div>
+                <div><b> sourcePdf : </b>{{element.sourcePdf}}</div>
                 <br>
                 <div> <b>Lien : </b>{{element.lien}}</div>
                 <hr>
@@ -47,6 +53,10 @@
 </div>
 </div>
 </div>
+    
+</mat-drawer-content>
+</mat-drawer-container> 
+
 
 
 <ng-template #mymodal let-modal>
@@ -58,14 +68,14 @@
   </div>
   <div class="modal-body">
     <form [formGroup]="form">
-      <div class="form-row">
+      <!-- <div class="form-row">
         <div class="form-group col-md-6 center">
           <label for="id">ID</label>
           <input formControlName="id" type="id"  class="form-control" id="id">
            
-          <!--<input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>-->
+      <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
         </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="form-group col-md-6">
@@ -101,8 +111,8 @@
         </div>
         <div class="form-group col-md-6">
           <div class="form-group">
-            <label for="SourcePdf">SourcePdf</label>
-            <input formControlName="SourcePdf" type="SourcePdf" class="form-control" id="SourcePdf">
+            <label for="sourcePdf">sourcePdf</label>
+            <input formControlName="sourcePdf" type="sourcePdf" class="form-control" id="sourcePdf">
             <!-- <small *ngIf="ajouterPaiement.get('date_effet').invalid && ajouterPaiement.get('date_effet').touched"
               class="text-danger">La date est obligatoire</small> -->
           </div>
@@ -113,8 +123,8 @@
       <div class="row">
         <div class="form-group col-md-6">
           <div class="form-group">
-            <label for="Date">Date</label>
-            <input formControlName="Date" type="Date" class="form-control" id="Date">
+            <label for="date">Date</label>
+            <input formControlName="date" type="date" class="form-control" id="date">
             <!-- <small *ngIf="ajouterPaiement.get('date').invalid && ajouterPaiement.get('date').touched"
               class="text-danger">La date est obligatoire</small> -->
 
@@ -193,8 +203,8 @@
         </div>
         <div class="form-group col-md-6">
           <div class="form-group">
-            <label for="SourcePdf">SourcePdf</label>
-            <input formControlName="SourcePdf" type="SourcePdf" class="form-control" id="SourcePdf">
+            <label for="sourcePdf">sourcePdf</label>
+            <input formControlName="sourcePdf" type="sourcePdf" class="form-control" id="sourcePdf">
             <!-- <small *ngIf="ajouterPaiement.get('date_effet').invalid && ajouterPaiement.get('date_effet').touched"
               class="text-danger">La date est obligatoire</small> -->
           </div>
@@ -205,8 +215,8 @@
       <div class="row">
         <div class="form-group col-md-6">
           <div class="form-group">
-            <label for="Date">Date</label>
-            <input formControlName="Date" type="Date" class="form-control" id="Date">
+            <label for="date">Date</label>
+            <input formControlName="date" type="date" class="form-control" id="date">
             <!-- <small *ngIf="ajouterPaiement.get('date').invalid && ajouterPaiement.get('date').touched"
               class="text-danger">La date est obligatoire</small> -->
 

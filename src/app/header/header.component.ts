@@ -9,7 +9,7 @@ import { AuthService } from './../../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
-  constructor(private authService:AuthService,private router: Router) { }
+  constructor(public authService:AuthService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,7 +18,12 @@ export class HeaderComponent implements OnInit {
   }
   logout():void{
 
-    this.authService.doLogout().finally(()=>{this.router.navigate(['/login'])})
+    //this.authService.doLogout().finally(()=>{this.router.navigate(['/login'])})
+    this.authService.logout().subscribe({
+      next : (data)=>{
+        this.router.navigateByUrl("/login")
+      }
+    })
   }
 
 }
