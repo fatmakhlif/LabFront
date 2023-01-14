@@ -16,7 +16,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class MembersComponent implements OnInit {
 
-  dataSource:Member[] ;
+ // dataSource:Member[] ;
+ displayedColumns: string[] = ['ID', 'CIN', 'NAME' , 'CREATEDDATE' , 'CV' , 'TYPE' ,  'DATE','UR'  ];
+
+ dataSource : MatTableDataSource<Member>
+
   closeResult: string="";
   form : any ;
   form2 : any ;
@@ -26,8 +30,10 @@ export class MembersComponent implements OnInit {
 
 
   constructor(private memberService : MemberService ,private router : Router , private dialog : MatDialog , private modalService: NgbModal ) {
+    this.dataSource = new MatTableDataSource(this.memberService.tab);
 
-    this.dataSource =   this.memberService.tab ;}
+  //  this.dataSource =   this.memberService.tab ;
+}
     
 
   ngOnInit(): void {
@@ -68,7 +74,7 @@ export class MembersComponent implements OnInit {
    //dataSource : Member [] =  this.memberService.tab ;
   fetchData() : void
   {
-     this.memberService.getAllMembers().then((tableau)=>{this.dataSource=tableau})
+     this.memberService.getAllMembers().then((tableau)=>{this.dataSource.data=tableau})
   }
 
    ONDelete(id : string) : void {
@@ -83,10 +89,10 @@ export class MembersComponent implements OnInit {
     
     ;}
 
-    // applyFilter(event: Event) {
-      //   const filterValue = (event.target as HTMLInputElement).value;
-      //   this.dataSource.filter = filterValue.trim().toLowerCase();
-      // }
+    applyFilter(event: Event) {
+        const filterValue = (event.target as HTMLInputElement).value;
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+      }
       resetFormValues(){
        this.form2.get('cin').setValue(null);
        this.form2.get('email').setValue(null);

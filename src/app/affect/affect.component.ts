@@ -17,10 +17,11 @@ export class AffectComponent implements OnInit {
 
 
   constructor(private memberService : MemberService ,private articleService : ArticleService , private ActivatedRoute : ActivatedRoute ,private router : Router) {
-    this.tab=this.memberService.tab ;
+    this.tab = this.memberService.tab ;
    }
 
   ngOnInit(): void {
+    this.memberService.getAllMembers().then((tableau)=>{this.tab=tableau})
   }
 
   affect(selected : string): void {

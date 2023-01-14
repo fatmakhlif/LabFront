@@ -51,11 +51,11 @@ export class ArticleService {
   }
   affectAuteur(id_article :string, selected :string ) : Promise<void> {
     
-   //his.getArticleByid(id_article).then((article)=>{article.auteur = selected});
+   return (this.getArticleByid(id_article).then((article)=>{article.auteur = selected}))
     
     
     //return new Promise (resolve => resolve ())
-    return(this.httpClient.get<void>('http://localhost:9000/MEMBRE-SERVICE/affecterAuteurToPub/' + id_article +'/' +selected).toPromise())
+   // return(this.httpClient.get<void>('http://localhost:9000/MEMBRE-SERVICE/affecterAuteurToPub/' + id_article +'/' +selected).toPromise())
     
   }
   
