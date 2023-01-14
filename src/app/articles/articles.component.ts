@@ -113,7 +113,7 @@ export class ArticlesComponent implements OnInit {
     }
   }
   ONSUB():void {
-
+   console.log(this.form.value);
     this.articleService.saveArticle(this.form.value).then(()=>{ this.fetchData() ;   } ) ;
   
 

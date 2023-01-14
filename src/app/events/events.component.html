@@ -1,16 +1,224 @@
 <mat-drawer-container>
-    <mat-drawer mode="over" [opened]="sideBarOpen">
-      <!-- <mat-drawer mode="side" opened="true"> -->
-      <app-sidenav></app-sidenav>
-    </mat-drawer>
-    <mat-drawer-content>
-      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+  <mat-drawer mode="over" [opened]="sideBarOpen">
+    <!-- <mat-drawer mode="side" opened="true"> -->
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
 <div class="container-fluid page">
-    <div class="d-flex page__box p-3 mt-2">Events</div>
-    <div class="page__content shadow p-3 position-relative">
-<p>events works!</p>
+  <div class="d-flex page__box p-3 mt-2">Events</div>
+  <div class="page__content shadow p-3 position-relative">
+   
+
+<div fxLayout="row" fxLayoutAlign="end center"  >
+  <button (click)="open(mymodal)" mat-button color="primary" > <mat-icon>add </mat-icon> Create New  </button>
+</div>
+
+<div class="content">
+
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-6 my-2" *ngFor="let element of dataSourceevent">
+        <mat-card class="example-card" style="margin: 0.2em;">
+            <mat-card-content>
+                <!-- <div><b>Id : </b>{{element.id}}</div>
+                <br> -->
+                <div><b> Titre : </b>{{element.titre}}</div>
+                <br>
+                <div> <b>Date : </b>{{element.date}}</div>
+                <br>
+                <div><b>Lieu : </b>{{element.lieu}}</div>                
+                <hr>
+                
+
+            </mat-card-content>
+            <mat-card-actions col-6>
+                <div class="d-flex justify-content-center ">
+                    <div>
+                        <button class="btn btn-sm btn-block  margin-x-6 fatma " (click)="openformtoedit(editmodal, element.id)">edit</button>
+                        <button class="btn btn-sm btn-block  margin-x-6 lassad " type="submit"
+                            (click)="ONDelete(element.id)">delete</button>                        
+                    </div>
+
+                </div>
+            </mat-card-actions>
+        </mat-card>
     </div>
+</div>
+
+
+</div>
+</div>
 </div>
     
 </mat-drawer-content>
 </mat-drawer-container> 
+
+
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header text-center">
+    <h2 class="modal-title w-100" id="modal-basic-title">Add Event</h2>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <!-- <div class="form-row">
+        <div class="form-group col-md-6 center">
+          <label for="id">ID</label>
+          <input formControlName="id" type="id"  class="form-control" id="id">
+           
+      <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <!-- <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input formControlName="id" type="id" class="form-control" id="id">
+      
+
+          </div>
+        </div> -->
+        <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="titre">Titre</label>
+            <input formControlName="titre" type="titre" class="form-control" id="titre">
+            <!-- <small *ngIf="ajouterPaiement.get('date').invalid && ajouterPaiement.get('date').touched"
+              class="text-danger">La date est obligatoire</small> -->
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input formControlName="date" type="date" class="form-control" id="date">
+            <!-- <small *ngIf="ajouterPaiement.get('date').invalid && ajouterPaiement.get('date').touched"
+              class="text-danger">La date est obligatoire</small> -->
+
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="lieu">Lieu</label>
+            <input formControlName="lieu" type="lieu" class="form-control" id="lieu">
+            <!-- <small *ngIf="ajouterPaiement.get('date_effet').invalid && ajouterPaiement.get('date_effet').touched"
+              class="text-danger">La date est obligatoire</small> -->
+          </div>
+        </div>
+
+      </div>
+
+     
+
+
+
+    </form>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button class="btn  btn-outline-success btn-lg" (click)="ONSUB()  ;  modal.close('Save click')">Valider</button>
+  </div>
+</ng-template>
+
+
+<ng-template #editmodal let-modal>
+  <div class="modal-header text-center">
+    <h2 class="modal-title w-100" id="modal-basic-title">Edit  Event</h2>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="form-row">
+        <div class="form-group col-md-6 center">
+          <label for="id">ID</label>
+          <input formControlName="id" type="id"  class="form-control" id="id">
+           
+          <!--<input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>-->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="titre">Titre</label>
+            <input formControlName="titre" type="titre" class="form-control" id="titre">
+            <!-- <small *ngIf="ajouterPaiement.get('date').invalid && ajouterPaiement.get('date').touched"
+              class="text-danger">La date est obligatoire</small> -->
+
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input formControlName="date" type="date" class="form-control" id="date">
+            <!-- <small *ngIf="ajouterPaiement.get('date_effet').invalid && ajouterPaiement.get('date_effet').touched"
+              class="text-danger">La date est obligatoire</small> -->
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="lieu">Lieu</label>
+            <input formControlName="lieu" type="lieu" class="form-control" id="lieu">
+            <!-- <small *ngIf="ajouterPaiement.get('date').invalid && ajouterPaiement.get('date').touched"
+              class="text-danger">La date est obligatoire</small> -->
+
+          </div>
+        </div>
+      
+
+      </div>
+
+  
+
+
+
+    </form>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button class="btn  btn-outline-success btn-lg" (click)="ONEDIT()  ;  modal.close('Save click')">Valider</button>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
