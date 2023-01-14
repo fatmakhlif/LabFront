@@ -92,7 +92,7 @@ export class AuthService {
   private users : AppUser[]=[];
   public authenticatedUser : AppUser | undefined;
   constructor() {
-    this.users.push({userId : UUID.UUID(),username:"user1",password :"1234","roles":['USER']});
+    this.users.push({userId : UUID.UUID(),username:"admin",password :"admin","roles":['USER']});
     this.users.push({userId : UUID.UUID(),username:"user2",password :"1234","roles":['USER']})
     this.users.push({userId : UUID.UUID(),username:"admin",password :"admin","roles":['USER',"ADMIN"]});
   }
